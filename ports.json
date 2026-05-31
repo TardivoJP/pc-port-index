@@ -14,7 +14,7 @@
     "links": [
       "https://github.com/djyt/cannonball"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/d01309496ec309c4d609a2d6fdefb834.jpg"
+    "cover": "img/d01309496ec309c4d609a2d6fdefb834.jpg"
   },
   {
     "title": "San Francisco Rush 2049",
@@ -31,7 +31,7 @@
     "links": [
       "https://t3hd0gg.com/project-r/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/149fc7df611affd0659740836d467a08.jpg"
+    "cover": "img/149fc7df611affd0659740836d467a08.jpg"
   },
   {
     "title": "San Francisco Rush: The Rock",
@@ -49,7 +49,7 @@
     "links": [
       "https://t3hd0gg.com/project-r/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/149fc7df611affd0659740836d467a08.jpg"
+    "cover": "img/149fc7df611affd0659740836d467a08.jpg"
   },
   {
     "title": "Silent Hill: The Arcade",
@@ -66,7 +66,7 @@
     "links": [
       "https://www.pcgamingwiki.com/wiki/Silent_Hill:_The_Arcade"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/997d552bc637b047efd00d247410509a.jpg"
+    "cover": "img/997d552bc637b047efd00d247410509a.jpg"
   },
   {
     "title": "Cannon Fodder",
@@ -84,7 +84,7 @@
     "links": [
       "http://openfodder.com/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/a5b7343f3b6103bbc8b57f6158b561e7.jpg"
+    "cover": "img/a5b7343f3b6103bbc8b57f6158b561e7.jpg"
   },
   {
     "title": "Lemmings",
@@ -102,7 +102,7 @@
     "links": [
       "https://www.neolemmix.com/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/4fe03b2dd02881db071630dbab9291bd.png"
+    "cover": "img/4fe03b2dd02881db071630dbab9291bd.png"
   },
   {
     "title": "Pizza Tycoon",
@@ -120,7 +120,7 @@
     "links": [
       "http://pizzalegacy.nl/"
     ],
-    "cover": "https://bestdosgames.com/_next/image?url=https%3A%2F%2Fbestdosgames.com%2Fprod%2Fuploads%2F2025%2F01%2FUntitled-1-23.png&w=640&q=75"
+    "cover": "img/image"
   },
   {
     "title": "SimCity (1989)",
@@ -138,7 +138,7 @@
     "links": [
       "https://github.com/SimHacker/micropolis"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/36edd07c041a96bdae301581a711788b.jpg"
+    "cover": "img/36edd07c041a96bdae301581a711788b.jpg"
   },
   {
     "title": "The Elder Scrolls II: Daggerfall",
@@ -156,7 +156,7 @@
     "links": [
       "https://www.dfworkshop.net"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/c33d40a3ecfa16a5956d9bf81eef24bb.jpg"
+    "cover": "img/c33d40a3ecfa16a5956d9bf81eef24bb.jpg"
   },
   {
     "title": "The Legend of Zelda: Link's Awakening DX",
@@ -174,7 +174,7 @@
     "links": [
       "https://github.com/BigheadSMZ/Zelda-LA-DX-HD-Updated"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/d7b34cc18c3b1c0a53acf0987d834a31.jpg"
+    "cover": "img/d7b34cc18c3b1c0a53acf0987d834a31.jpg"
   },
   {
     "title": "Sonic Advance 2",
@@ -192,7 +192,7 @@
     "links": [
       "https://github.com/SAT-R/sa2"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/8fdad7f3d27bdb63d42484e331f1d8ad.png"
+    "cover": "img/8fdad7f3d27bdb63d42484e331f1d8ad.png"
   },
   {
     "title": "The Legend of Zelda: The Minish Cap",
@@ -210,7 +210,7 @@
     "links": [
       "https://github.com/MatheoVignaud/tmc"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/a687f78b9842c87225e74921765feb1b.jpg"
+    "cover": "img/a687f78b9842c87225e74921765feb1b.jpg"
   },
   {
     "title": "Animal Crossing",
@@ -229,7 +229,7 @@
       "https://github.com/ACreTeam/forest",
       "https://github.com/flyngmt/ACGC-PC-Port/releases/tag/Playtest"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/d9e16849e6c8440f27574666b9e9735a.jpg"
+    "cover": "img/d9e16849e6c8440f27574666b9e9735a.jpg"
   },
   {
     "title": "Mario Party 4",
@@ -246,7 +246,7 @@
     "links": [
       "https://github.com/mariopartyrd/marioparty4"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/34ee49ced5744eeb86d6e8e9661634aa.png"
+    "cover": "img/34ee49ced5744eeb86d6e8e9661634aa.png"
   },
   {
     "title": "Metroid Prime",
@@ -265,7 +265,7 @@
     "links": [
       "https://github.com/AxioDL/metaforce"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/0327d825efc9703e56afaa2e9e1cef9e.jpg"
+    "cover": "img/0327d825efc9703e56afaa2e9e1cef9e.jpg"
   },
   {
     "title": "The Legend of Zelda: Twilight Princess",
@@ -283,7 +283,7 @@
     "links": [
       "https://github.com/TwilitRealm/dusklight"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/36d6a670240681fbbf69cbba0c9065ce.jpg"
+    "cover": "img/36d6a670240681fbbf69cbba0c9065ce.jpg"
   },
   {
     "title": "Billy Frontier",
@@ -298,7 +298,7 @@
     "links": [
       "https://github.com/jorio/BillyFrontier"
     ],
-    "cover": "https://howlongtobeat.com/games/107472_Billy_Frontier.jpg?width=250"
+    "cover": "img/107472_Billy_Frontier.jpg"
   },
   {
     "title": "Bugdom 2",
@@ -316,7 +316,7 @@
     "links": [
       "https://github.com/jorio/Bugdom2"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/67951666dd077e612ae8b540b2890e27.jpg"
+    "cover": "img/67951666dd077e612ae8b540b2890e27.jpg"
   },
   {
     "title": "Bugdom",
@@ -334,7 +334,7 @@
     "links": [
       "https://github.com/jorio/Bugdom"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/b24710098ed583e792efd088f8df63db.jpg"
+    "cover": "img/b24710098ed583e792efd088f8df63db.jpg"
   },
   {
     "title": "Cro-Mag Rally",
@@ -351,7 +351,7 @@
     "links": [
       "https://github.com/jorio/CroMagRally"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/dcf7f715edeb71f1a5774a8ac48b259a.jpg"
+    "cover": "img/dcf7f715edeb71f1a5774a8ac48b259a.jpg"
   },
   {
     "title": "Glider PRO",
@@ -366,7 +366,7 @@
     "links": [
       "https://github.com/elasota/Aerofoil"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/90b8a89680118560eb1cf8da30b316d8.jpg"
+    "cover": "img/90b8a89680118560eb1cf8da30b316d8.jpg"
   },
   {
     "title": "Marathon 2: Durandal",
@@ -383,7 +383,7 @@
     "links": [
       "https://github.com/Aleph-One-Marathon/alephone"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/32b5bda1b95bc6bdc626a091b7515ae0.jpg"
+    "cover": "img/32b5bda1b95bc6bdc626a091b7515ae0.jpg"
   },
   {
     "title": "Marathon Infinity",
@@ -400,7 +400,7 @@
     "links": [
       "https://github.com/Aleph-One-Marathon/alephone"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/b8ad28dbcb5744984d288f0fe9073038.jpg"
+    "cover": "img/b8ad28dbcb5744984d288f0fe9073038.jpg"
   },
   {
     "title": "Marathon",
@@ -417,7 +417,7 @@
     "links": [
       "https://github.com/Aleph-One-Marathon/alephone"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/b003516d5849e8ffcc36e28d3ae0e051.jpg"
+    "cover": "img/b003516d5849e8ffcc36e28d3ae0e051.jpg"
   },
   {
     "title": "Nanosaur 2: Hatchling",
@@ -435,7 +435,7 @@
     "links": [
       "https://github.com/jorio/Nanosaur2"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/e46821a28446c5a2b91908a2c6d82313.jpg"
+    "cover": "img/e46821a28446c5a2b91908a2c6d82313.jpg"
   },
   {
     "title": "Nanosaur",
@@ -453,7 +453,7 @@
     "links": [
       "https://github.com/jorio/Nanosaur"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/c3c7fdcce42b0fc408695e1fba02b1a5.jpg"
+    "cover": "img/c3c7fdcce42b0fc408695e1fba02b1a5.jpg"
   },
   {
     "title": "Otto Matic",
@@ -472,7 +472,7 @@
     "links": [
       "https://github.com/jorio/OttoMatic"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/86ce90f95f675091fcc460f4038c9a44.jpg"
+    "cover": "img/86ce90f95f675091fcc460f4038c9a44.jpg"
   },
   {
     "title": "Power Pete / Mighty Mike",
@@ -489,7 +489,7 @@
     "links": [
       "https://github.com/jorio/MightyMike"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/0257e8654f34a1120a31f30bf0387b66.jpg"
+    "cover": "img/0257e8654f34a1120a31f30bf0387b66.jpg"
   },
   {
     "title": "The Legend of Zelda",
@@ -508,7 +508,7 @@
       "https://zquestclassic.com/releases/",
       "https://www.zeldaclassic.com/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/a3c01782bb0b9340ffbcdf8455cfdac1.jpg"
+    "cover": "img/a3c01782bb0b9340ffbcdf8455cfdac1.jpg"
   },
   {
     "title": "Banjo-Kazooie",
@@ -527,7 +527,7 @@
     "links": [
       "https://github.com/BanjoRecomp/BanjoRecomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/a154a70f923c579313aa9c47ed7c34e2.jpg"
+    "cover": "img/a154a70f923c579313aa9c47ed7c34e2.jpg"
   },
   {
     "title": "Bomberman 64",
@@ -546,7 +546,7 @@
     "links": [
       "https://github.com/RevoSucks/BM64Recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/c5b781ce025e8217c23f95f9569a0b96.jpg"
+    "cover": "img/c5b781ce025e8217c23f95f9569a0b96.jpg"
   },
   {
     "title": "Bomberman Hero",
@@ -563,7 +563,7 @@
     "links": [
       "https://github.com/RevoSucks/BMHeroRecomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/0e6e9339d71b9008e8ecd4680608d0ec.jpg"
+    "cover": "img/0e6e9339d71b9008e8ecd4680608d0ec.jpg"
   },
   {
     "title": "Chameleon Twist",
@@ -580,7 +580,7 @@
     "links": [
       "https://github.com/Rainchus/ChameleonTwist1-JP-Recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/78ec3e9ba98d856873f1bdb01194eef9.jpg"
+    "cover": "img/78ec3e9ba98d856873f1bdb01194eef9.jpg"
   },
   {
     "title": "Dinosaur Planet",
@@ -597,7 +597,7 @@
     "links": [
       "https://github.com/Francessco121/dino-recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/11738c383581f80d010ca13ac005d763.jpg"
+    "cover": "img/11738c383581f80d010ca13ac005d763.jpg"
   },
   {
     "title": "Doom 64",
@@ -614,7 +614,7 @@
     "links": [
       "https://doom64ex.wordpress.com/downloads/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/32b87d267730795171ae25b605e7cee3.jpg"
+    "cover": "img/32b87d267730795171ae25b605e7cee3.jpg"
   },
   {
     "title": "Dr Mario 64",
@@ -631,7 +631,7 @@
     "links": [
       "https://github.com/theboy181/drmario64_recomp_plus/releases/tag/1.0.0"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/c3884b938f2ccc63708d922671c5ea23.jpg"
+    "cover": "img/c3884b938f2ccc63708d922671c5ea23.jpg"
   },
   {
     "title": "Duke Nukem: Zero Hour",
@@ -648,7 +648,7 @@
     "links": [
       "https://github.com/sonicdcer/DNZHRecomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/c2f8cdd9152894d36edf05bf7c2e5fd4.jpg"
+    "cover": "img/c2f8cdd9152894d36edf05bf7c2e5fd4.jpg"
   },
   {
     "title": "GoldenEye 007",
@@ -667,7 +667,7 @@
       "https://github.com/kholdfuzion/GoldenRecomp",
       "https://gitlab.com/kholdfuzion/goldeneye_src"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/f0971d67a49ade9bab406f7664e8129d.jpg"
+    "cover": "img/f0971d67a49ade9bab406f7664e8129d.jpg"
   },
   {
     "title": "Mario Kart 64",
@@ -687,7 +687,7 @@
       "https://github.com/sonicdcer/MarioKart64Recomp",
       "https://github.com/HarbourMasters/SpaghettiKart"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/bc11db020cb9418782afa3d1e0a1209b.png"
+    "cover": "img/bc11db020cb9418782afa3d1e0a1209b.png"
   },
   {
     "title": "Mega Man 64",
@@ -707,7 +707,7 @@
     "links": [
       "https://github.com/MegaMan64Recomp/MegaMan64Recompiled"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/174cbbef75ac1b1b15847299d50f77bf.jpg"
+    "cover": "img/174cbbef75ac1b1b15847299d50f77bf.jpg"
   },
   {
     "title": "Mystical Ninja Starring Goemon",
@@ -725,7 +725,7 @@
     "links": [
       "https://github.com/klorfmorf/Goemon64Recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/47e596b1edee7909345c64a4d1a39517.jpg"
+    "cover": "img/47e596b1edee7909345c64a4d1a39517.jpg"
   },
   {
     "title": "Paper Mario",
@@ -743,7 +743,7 @@
     "links": [
       "https://github.com/SMCGames/Paper-Mario-ReCut"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/f98e8082f2b3924b8a137d1cfc12e08b.jpg"
+    "cover": "img/f98e8082f2b3924b8a137d1cfc12e08b.jpg"
   },
   {
     "title": "Perfect Dark",
@@ -761,7 +761,7 @@
     "links": [
       "https://github.com/fgsfdsfgs/perfect_dark"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/f2eaa301f9c53bb10fb8e5b9d3d0ea9c.jpg"
+    "cover": "img/f2eaa301f9c53bb10fb8e5b9d3d0ea9c.jpg"
   },
   {
     "title": "Pilotwings 64",
@@ -780,7 +780,7 @@
     "links": [
       "https://github.com/gcsmith/Pilotwings64Recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/b349a212c3e61e124ae04244eecde663.jpg"
+    "cover": "img/b349a212c3e61e124ae04244eecde663.jpg"
   },
   {
     "title": "Quest 64",
@@ -798,7 +798,7 @@
     "links": [
       "https://github.com/Rainchus/Quest64-Recomp/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/59e6bb2bb03821bb51050ea6d0a23bb8.jpg"
+    "cover": "img/59e6bb2bb03821bb51050ea6d0a23bb8.jpg"
   },
   {
     "title": "Space Station Silicon Valley",
@@ -816,7 +816,7 @@
     "links": [
       "https://github.com/Cellenseres/SSSV_Recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/a540033cae33272f44875ca0a0921ed4.jpg"
+    "cover": "img/a540033cae33272f44875ca0a0921ed4.jpg"
   },
   {
     "title": "Star Fox 64",
@@ -835,7 +835,7 @@
       "https://github.com/HarbourMasters/Starship",
       "https://github.com/sonicdcer/Starfox64Recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/9122b7acc2588eff1d20211ce8fb8798.jpg"
+    "cover": "img/9122b7acc2588eff1d20211ce8fb8798.jpg"
   },
   {
     "title": "Super Mario 64",
@@ -865,7 +865,7 @@
       "https://github.com/coop-deluxe/sm64coopdx",
       "https://github.com/HarbourMasters/Ghostship"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/f293653ffa5c0e53453463a82401dbec.jpg"
+    "cover": "img/f293653ffa5c0e53453463a82401dbec.jpg"
   },
   {
     "title": "Super Smash Bros.",
@@ -883,7 +883,7 @@
     "links": [
       "https://github.com/JRickey/BattleShip"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/aedfc9ce6f9548cae0642eb628fa23c7.jpg"
+    "cover": "img/aedfc9ce6f9548cae0642eb628fa23c7.jpg"
   },
   {
     "title": "Superman: The New Superman Adventures",
@@ -901,7 +901,7 @@
     "links": [
       "https://github.com/gcsmith/Superman64Recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/0176f16327965da04ee40c41cc4df2e5.jpg"
+    "cover": "img/0176f16327965da04ee40c41cc4df2e5.jpg"
   },
   {
     "title": "The Legend of Zelda: Majora's Mask",
@@ -921,7 +921,7 @@
       "https://github.com/Mr-Wiseguy/Zelda64Recomp",
       "https://github.com/HarbourMasters/2ship2harkinian"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/958c6e525626a72dc5722a63f638a80b.jpg"
+    "cover": "img/958c6e525626a72dc5722a63f638a80b.jpg"
   },
   {
     "title": "The Legend of Zelda: Ocarina of Time",
@@ -941,7 +941,7 @@
       "https://github.com/Mr-Wiseguy/Zelda64Recomp",
       "https://www.shipofharkinian.com/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/ed89e6477ff6a465891a5f17f77948ae.jpg"
+    "cover": "img/ed89e6477ff6a465891a5f17f77948ae.jpg"
   },
   {
     "title": "Pokémon Platinum",
@@ -960,7 +960,7 @@
     "links": [
       "https://github.com/pret/pokeplatinum"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/293d4b3062d071218312a5eb322a3a47.jpg"
+    "cover": "img/293d4b3062d071218312a5eb322a3a47.jpg"
   },
   {
     "title": "Touhou 1 - The Highly Responsive to Prayers",
@@ -979,7 +979,7 @@
     "links": [
       "https://github.com/nmlgc/ReC98"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/671c6790753a393eb2e28255461bbc1c.jpg"
+    "cover": "img/671c6790753a393eb2e28255461bbc1c.jpg"
   },
   {
     "title": "Angry Birds Epic",
@@ -998,7 +998,7 @@
     "links": [
       "https://www.pcgamingwiki.com/wiki/Angry_Birds_Epic"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/ac59323d5db1e846b88232a194286b26.jpg"
+    "cover": "img/ac59323d5db1e846b88232a194286b26.jpg"
   },
   {
     "title": "Doom II RPG",
@@ -1017,7 +1017,7 @@
     "links": [
       "https://github.com/Erick194/DoomIIRPG-RE"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/541534bd09fa06fa6d419d7300b82476.jpg"
+    "cover": "img/541534bd09fa06fa6d419d7300b82476.jpg"
   },
   {
     "title": "Doom RPG",
@@ -1036,7 +1036,7 @@
     "links": [
       "https://github.com/Erick194/DoomRPG-RE"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/1e31de949620b2c95b25be7a4233e5f3.jpg"
+    "cover": "img/1e31de949620b2c95b25be7a4233e5f3.jpg"
   },
   {
     "title": "Harry Potter: Hogwarts Mystery",
@@ -1056,7 +1056,7 @@
     "links": [
       "https://docs.google.com/document/d/e/2PACX-1vSAXYtEspfmWl9CI6Pg5G_J7CcSZ7NqmzSjXO-_Mu2xVfat5Gyg5JoAFIjvEyIJMg/pub"
     ],
-    "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Cover_art_for_Hogwarts_Mystery_video_game.jpg/250px-Cover_art_for_Hogwarts_Mystery_video_game.jpg"
+    "cover": "img/250px-Cover_art_for_Hogwarts_Mystery_video_game.jpg"
   },
   {
     "title": "Infinity Blade",
@@ -1076,7 +1076,7 @@
     "links": [
       "https://archive.org/details/infinity-blade-pc"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/0e5d8047bae2b9304eeb87e9c5dbfbe7.jpg"
+    "cover": "img/0e5d8047bae2b9304eeb87e9c5dbfbe7.jpg"
   },
   {
     "title": "Ratchet & Clank: Clone Home",
@@ -1093,7 +1093,7 @@
     "links": [
       "https://codeberg.org/bordplate/CloneHome"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/20c4e499c80fbdc6f864f438cb19e69c.jpg"
+    "cover": "img/20c4e499c80fbdc6f864f438cb19e69c.jpg"
   },
   {
     "title": "Sonic CD (2011 engine)",
@@ -1108,7 +1108,7 @@
     "links": [
       "https://github.com/RSDKModding/RSDKv3-Decompilation"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/4cce2e43180f467e933d0eeb1bf547fc.jpg"
+    "cover": "img/4cce2e43180f467e933d0eeb1bf547fc.jpg"
   },
   {
     "title": "Sonic the Hedgehog (2013 engine)",
@@ -1123,7 +1123,7 @@
     "links": [
       "https://github.com/RSDKModding/RSDKv4-Decompilation"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/b0b00b17faeeefd1680c86db2a1bf8c6.jpg"
+    "cover": "img/b0b00b17faeeefd1680c86db2a1bf8c6.jpg"
   },
   {
     "title": "Sonic the Hedgehog 2 (2013 engine)",
@@ -1138,7 +1138,7 @@
     "links": [
       "https://github.com/RSDKModding/RSDKv4-Decompilation"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/4a421463135a0f5e506740db32d16b97.jpg"
+    "cover": "img/4a421463135a0f5e506740db32d16b97.jpg"
   },
   {
     "title": "Crash Bandicoot",
@@ -1155,7 +1155,7 @@
     "links": [
       "https://github.com/mateusfavarin/c1/tree/windows"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/8282b546dda9ec05515966ba0fe3e5d1.jpg"
+    "cover": "img/8282b546dda9ec05515966ba0fe3e5d1.jpg"
   },
   {
     "title": "Doom (1993)",
@@ -1170,7 +1170,7 @@
     "links": [
       "https://github.com/BodbDearg/PsyDoom"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/ef58f7ffe086514aa0164c7fc4f6cea8.jpg"
+    "cover": "img/ef58f7ffe086514aa0164c7fc4f6cea8.jpg"
   },
   {
     "title": "Driver 2",
@@ -1187,7 +1187,7 @@
     "links": [
       "https://github.com/OpenDriver2/REDRIVER2/releases"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/fa534c598abc73691ad2e3594f92d82d.jpg"
+    "cover": "img/fa534c598abc73691ad2e3594f92d82d.jpg"
   },
   {
     "title": "LSD: Dream Emulator",
@@ -1206,7 +1206,7 @@
     "links": [
       "https://figglewatts.itch.io/lsd-revamped"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/589e48b09df3eb560af7d96556853822.jpg"
+    "cover": "img/589e48b09df3eb560af7d96556853822.jpg"
   },
   {
     "title": "The Legend of Dragoon",
@@ -1223,7 +1223,7 @@
     "links": [
       "https://legendofdragoon.org/projects/severed-chains/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/aa82fd1c7df60df76d515816cbdb76a0.jpg"
+    "cover": "img/aa82fd1c7df60df76d515816cbdb76a0.jpg"
   },
   {
     "title": "WipEout",
@@ -1242,7 +1242,7 @@
       "https://github.com/phoboslab/wipeout-rewrite",
       "https://github.com/wipeout-phantom-edition/wipeout-phantom-edition"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/aa427c8f034347d6e39263ad50476aab.jpg"
+    "cover": "img/aa427c8f034347d6e39263ad50476aab.jpg"
   },
   {
     "title": "Fatal Frame",
@@ -1259,7 +1259,7 @@
     "links": [
       "https://github.com/Mikompilation/MikuPan"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/830c8e7e327466f868edbc4d3071118e.jpg"
+    "cover": "img/830c8e7e327466f868edbc4d3071118e.jpg"
   },
   {
     "title": "Grand Theft Auto: Liberty City Stories",
@@ -1277,7 +1277,7 @@
     "links": [
       "https://www.pcgamingwiki.com/wiki/Grand_Theft_Auto_Re:_Liberty_City_Stories"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/6ba32142b6b23ecd32a4c0aff11c2c41.jpg"
+    "cover": "img/6ba32142b6b23ecd32a4c0aff11c2c41.jpg"
   },
   {
     "title": "Grand Theft Auto: Vice City Stories",
@@ -1295,7 +1295,7 @@
     "links": [
       "https://gtaforums.com/topic/949961-vice-city-stories-pc-edition/page/579/#comment-1070270621"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/c8aa48a3667e7a29486f3f978b0e0279.jpg"
+    "cover": "img/c8aa48a3667e7a29486f3f978b0e0279.jpg"
   },
   {
     "title": "Half-Life: Decay",
@@ -1314,7 +1314,7 @@
     "links": [
       "https://web.archive.org/web/20190201185924/http://decay.half-lifecreations.com/?content=files&sub=decay"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/1d817fe1aa7d826289fc8735e75d9fb9.jpg"
+    "cover": "img/1d817fe1aa7d826289fc8735e75d9fb9.jpg"
   },
   {
     "title": "Jak 3",
@@ -1333,7 +1333,7 @@
     "links": [
       "https://opengoal.dev/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/4ee285c12ef11f247df48292946aea6d.jpg"
+    "cover": "img/4ee285c12ef11f247df48292946aea6d.jpg"
   },
   {
     "title": "Jak and Daxter: The Precursor Legacy",
@@ -1352,7 +1352,7 @@
     "links": [
       "https://opengoal.dev/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/a86c4aec1bcf14eb30646ed8df2d2401.jpg"
+    "cover": "img/a86c4aec1bcf14eb30646ed8df2d2401.jpg"
   },
   {
     "title": "Jak II",
@@ -1371,7 +1371,7 @@
     "links": [
       "https://opengoal.dev/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/67111ba17799dbe2a3d3a58657de7060.jpg"
+    "cover": "img/67111ba17799dbe2a3d3a58657de7060.jpg"
   },
   {
     "title": "Street Fighter III: 3rd Strike",
@@ -1389,7 +1389,7 @@
     "links": [
       "https://github.com/crowded-street/3sx"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/74795ed1eea8eff2d2ead49ad13475b3.jpg"
+    "cover": "img/74795ed1eea8eff2d2ead49ad13475b3.jpg"
   },
   {
     "title": "Sonic 3 & Knuckles",
@@ -1406,7 +1406,7 @@
     "links": [
       "https://sonic3air.org/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/21e002e018246465c237429a3eb5f4b1.jpg"
+    "cover": "img/21e002e018246465c237429a3eb5f4b1.jpg"
   },
   {
     "title": "Streets of Rage 2",
@@ -1424,7 +1424,7 @@
     "links": [
       "https://www.sor2newera.com/"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/be4fc8968b453e72b5e246cfddf8d968.jpg"
+    "cover": "img/be4fc8968b453e72b5e246cfddf8d968.jpg"
   },
   {
     "title": "Super Mario World",
@@ -1442,7 +1442,7 @@
     "links": [
       "https://github.com/snesrev/smw"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/2bf887cd37fa5ba4ce0ba9713013a4f7.jpg"
+    "cover": "img/2bf887cd37fa5ba4ce0ba9713013a4f7.jpg"
   },
   {
     "title": "Super Metroid",
@@ -1461,7 +1461,7 @@
     "links": [
       "https://github.com/snesrev/sm"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/167248f62dbaf61aff4b7d1be9439282.jpg"
+    "cover": "img/167248f62dbaf61aff4b7d1be9439282.jpg"
   },
   {
     "title": "The Legend of Zelda: A Link to the Past",
@@ -1479,7 +1479,7 @@
     "links": [
       "https://github.com/snesrev/zelda3"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/7edaadde50012f0860952123564eb1ba.jpg"
+    "cover": "img/7edaadde50012f0860952123564eb1ba.jpg"
   },
   {
     "title": "3D Pinball for Windows - Space Cadet",
@@ -1494,7 +1494,7 @@
     "links": [
       "https://github.com/k4zmu2a/SpaceCadetPinball"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/098b8b9f44bbbc0db5aff108ef93a0e2.jpg"
+    "cover": "img/098b8b9f44bbbc0db5aff108ef93a0e2.jpg"
   },
   {
     "title": "Carmageddon",
@@ -1511,7 +1511,7 @@
     "links": [
       "https://github.com/dethrace-labs/dethrace"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/0b10574b8240b424056808b793bef04f.jpg"
+    "cover": "img/0b10574b8240b424056808b793bef04f.jpg"
   },
   {
     "title": "Cave Story",
@@ -1531,7 +1531,7 @@
     "links": [
       "https://github.com/doukutsu-rs/doukutsu-rs"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/e646e2fec7dcbe33111f4481a96523af.jpg"
+    "cover": "img/e646e2fec7dcbe33111f4481a96523af.jpg"
   },
   {
     "title": "Drakan: Order of the Flame",
@@ -1549,7 +1549,7 @@
     "links": [
       "https://github.com/Zalasus/opendrakan"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/b4784cac54af25561a05d197dd20bebd.jpg"
+    "cover": "img/b4784cac54af25561a05d197dd20bebd.jpg"
   },
   {
     "title": "Duck Game",
@@ -1569,7 +1569,7 @@
     "links": [
       "https://github.com/TheFlyingFoool/DuckGameRebuilt"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/3b589ac96f1627eab36fe02d9bec41ce.jpg"
+    "cover": "img/3b589ac96f1627eab36fe02d9bec41ce.jpg"
   },
   {
     "title": "Future Cop: LAPD",
@@ -1586,7 +1586,7 @@
     "links": [
       "https://github.com/Ghoster738/Future-Cop-MIT"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/1c06fe3a577f0985d39a737caeda6df5.jpg"
+    "cover": "img/1c06fe3a577f0985d39a737caeda6df5.jpg"
   },
   {
     "title": "Gothic II",
@@ -1605,7 +1605,7 @@
     "links": [
       "https://github.com/Try/OpenGothic"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/3ede4f910022c657c9d9892052527ca7.jpg"
+    "cover": "img/3ede4f910022c657c9d9892052527ca7.jpg"
   },
   {
     "title": "Gothic",
@@ -1623,7 +1623,7 @@
     "links": [
       "https://github.com/Try/OpenGothic"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/b6648870eb61ee8a7e3419c7ceac9d0e.jpg"
+    "cover": "img/b6648870eb61ee8a7e3419c7ceac9d0e.jpg"
   },
   {
     "title": "Lego Island",
@@ -1640,7 +1640,7 @@
     "links": [
       "https://github.com/isledecomp/isle"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/e18a081756e4c0d0dd76c53b75e678bc.jpg"
+    "cover": "img/e18a081756e4c0d0dd76c53b75e678bc.jpg"
   },
   {
     "title": "Marble Blast Gold",
@@ -1658,7 +1658,7 @@
     "links": [
       "https://github.com/MBU-Team/OpenMBG"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/f810cd5fce2258332616ad1d501f1029.jpg"
+    "cover": "img/f810cd5fce2258332616ad1d501f1029.jpg"
   },
   {
     "title": "Medal of Honor: Allied Assault",
@@ -1675,7 +1675,7 @@
     "links": [
       "https://github.com/openmoh/openmohaa"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/f9ac72d331adc4ee35df9dc97761c61e.jpg"
+    "cover": "img/f9ac72d331adc4ee35df9dc97761c61e.jpg"
   },
   {
     "title": "Prey",
@@ -1693,7 +1693,7 @@
     "links": [
       "https://github.com/FriskTheFallenHuman/Prey2006"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/d166d6ef19f213edeece16fd1f0db8be.jpg"
+    "cover": "img/d166d6ef19f213edeece16fd1f0db8be.jpg"
   },
   {
     "title": "Re-Volt",
@@ -1712,7 +1712,7 @@
     "links": [
       "https://www.pcgamingwiki.com/wiki/Re-Volt#RVGL"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/8d2acb449be3bc858a00d4146c54bf3f.jpg"
+    "cover": "img/8d2acb449be3bc858a00d4146c54bf3f.jpg"
   },
   {
     "title": "RollerCoaster Tycoon 2",
@@ -1731,7 +1731,7 @@
     "links": [
       "https://www.pcgamingwiki.com/wiki/OpenRCT2"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/4462a4b3999ec9898f57be7eb8537107.jpg"
+    "cover": "img/4462a4b3999ec9898f57be7eb8537107.jpg"
   },
   {
     "title": "Sonic Mania",
@@ -1749,7 +1749,7 @@
     "links": [
       "https://github.com/Rubberduckycooly/RSDKv5-Decompilation"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/850dc71b17efabd2c38aa16820445433.jpg"
+    "cover": "img/850dc71b17efabd2c38aa16820445433.jpg"
   },
   {
     "title": "The Elder Scrolls III: Morrowind",
@@ -1767,7 +1767,7 @@
     "links": [
       "https://gitlab.com/OpenMW/openmw"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/1ac14644c9b40ddeb100f417af0e608b.jpg"
+    "cover": "img/1ac14644c9b40ddeb100f417af0e608b.jpg"
   },
   {
     "title": "Touhou 6 - The Embodiment of Scarlet Devil",
@@ -1787,7 +1787,7 @@
     "links": [
       "https://github.com/happyhavoc/th06"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/f82e0b0c45c7babe84db897066335590.jpg"
+    "cover": "img/f82e0b0c45c7babe84db897066335590.jpg"
   },
   {
     "title": "Yoda Stories",
@@ -1807,7 +1807,7 @@
       "https://github.com/cyco/WebFun",
       "https://github.com/Sensei-Dad/goda-stories"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/be8c51125d05403ba1b5bd10a64c7ab5.jpg"
+    "cover": "img/be8c51125d05403ba1b5bd10a64c7ab5.jpg"
   },
   {
     "title": "Ace Combat 6",
@@ -1825,7 +1825,7 @@
     "links": [
       "https://github.com/sal063/AC6_recomp/tree/dev-test"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/4d3939e078927ce83662958dd1eb11f0.jpg"
+    "cover": "img/4d3939e078927ce83662958dd1eb11f0.jpg"
   },
   {
     "title": "Banjo Kazooie: Nuts & Bolts",
@@ -1845,7 +1845,7 @@
     "links": [
       "https://github.com/masterspike52/reNut"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/17faa600670ae46a32ff83f76e83806a.png"
+    "cover": "img/17faa600670ae46a32ff83f76e83806a.png"
   },
   {
     "title": "Blue Dragon",
@@ -1863,7 +1863,7 @@
     "links": [
       "https://github.com/zolaware/reblue"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/6b49e66b581fabbc459f4d7c5d8822ad.jpg"
+    "cover": "img/6b49e66b581fabbc459f4d7c5d8822ad.jpg"
   },
   {
     "title": "Destroy all humans: Path of the Furon",
@@ -1881,7 +1881,7 @@
     "links": [
       "https://github.com/masterspike52/redahm"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/493af0ad2d85bdcf47fe9b1f11dc9fe2.jpg"
+    "cover": "img/493af0ad2d85bdcf47fe9b1f11dc9fe2.jpg"
   },
   {
     "title": "Dragon Ball Z Budokai HD",
@@ -1898,7 +1898,7 @@
     "links": [
       "https://github.com/WistfulHopes/DBZ1"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/d29cbe5ceb0a45d87a1050e9a1718255.jpg"
+    "cover": "img/d29cbe5ceb0a45d87a1050e9a1718255.jpg"
   },
   {
     "title": "Kameo: Elements of Power",
@@ -1916,7 +1916,7 @@
     "links": [
       "https://github.com/birabittoh/KameoRePowered"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/94461b919021d58fa910449500cf8845.jpg"
+    "cover": "img/94461b919021d58fa910449500cf8845.jpg"
   },
   {
     "title": "Lollipop Chainsaw",
@@ -1933,7 +1933,7 @@
     "links": [
       "https://github.com/MaxDeadBear/Re-Cherry"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/7e601e63a48cb33f754d5bd684631118.jpg"
+    "cover": "img/7e601e63a48cb33f754d5bd684631118.jpg"
   },
   {
     "title": "Marble Blast Ultra",
@@ -1951,7 +1951,7 @@
     "links": [
       "https://github.com/MBU-Team/OpenMBU"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/6a14ada8ce6fbfebedc2154db173d2f7.jpg"
+    "cover": "img/6a14ada8ce6fbfebedc2154db173d2f7.jpg"
   },
   {
     "title": "Naughty Bear",
@@ -1969,7 +1969,7 @@
     "links": [
       "https://github.com/MaxDeadBear/NaughtyBear_ReStuff"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/cb9078c5cafe2934e4eceadc54d585c5.jpg"
+    "cover": "img/cb9078c5cafe2934e4eceadc54d585c5.jpg"
   },
   {
     "title": "Sonic the Hedgehog (2006)",
@@ -1987,7 +1987,7 @@
     "links": [
       "https://github.com/sonicnext-dev/MarathonRecomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/2036af86769a62d2270da426bf3c1e38.jpg"
+    "cover": "img/2036af86769a62d2270da426bf3c1e38.jpg"
   },
   {
     "title": "Sonic Unleashed",
@@ -2006,7 +2006,7 @@
     "links": [
       "https://github.com/hedge-dev/UnleashedRecomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/b80c0932cb6f7be27c8d37b4c847a8bd.jpg"
+    "cover": "img/b80c0932cb6f7be27c8d37b4c847a8bd.jpg"
   },
   {
     "title": "Viva Pinata: Trouble in Paradise",
@@ -2023,6 +2023,6 @@
     "links": [
       "https://github.com/SolarCookies/TiP-Recomp"
     ],
-    "cover": "https://cdn2.steamgriddb.com/thumb/e9437348054c27c0951c7d9d59bac04f.jpg"
+    "cover": "img/e9437348054c27c0951c7d9d59bac04f.jpg"
   }
 ]
