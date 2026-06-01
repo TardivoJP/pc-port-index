@@ -498,7 +498,6 @@ main { padding: 28px 48px 80px; }
   padding: 3px 6px;
   border: 1px solid var(--wire);
   color: var(--text2);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .card-score {
@@ -515,7 +514,7 @@ main { padding: 28px 48px 80px; }
 .score-lbl {
   font-family: 'Share Tech Mono', monospace;
   font-size: .55rem;
-  letter-spacing: .1em;
+  letter-spacing: .10em;
   color: var(--text3);
 }
 
@@ -808,6 +807,621 @@ footer {
   .flabel { flex: 0 0 60px; }
   footer { flex-direction: column; gap: 10px; text-align: center; }
 }
+
+/* ── CONTROLS SCROLL COLLAPSE — sucked toward top-right ── */
+.controls {
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.6, 1);
+  transform-origin: top right;
+}
+.controls.collapsed {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(40px) translateY(-12px) scaleX(0.6) scaleY(0.3);
+}
+
+/* ── Spawn keyframes ─────────────────────────────────────── */
+
+/* 1. Button scale — elastic pop */
+@keyframes btn-spawn {
+  0%   { opacity: 0; transform: scale(0.15); }
+  50%  { opacity: 1; transform: scale(1.22); }
+  68%  { transform: scale(0.90); }
+  84%  { transform: scale(1.07); }
+  100% { transform: scale(1);   }
+}
+
+/* 2. Multi-colour glow ring — cycles through the Atari stripe colours then settles */
+@keyframes btn-glow {
+  0%   { box-shadow: 0 0  0   0   rgba(192, 48, 48, 0.0); }
+  12%  { box-shadow: 0 0 22px 8px rgba(192, 48, 48, 0.7); }   /* red    */
+  26%  { box-shadow: 0 0 22px 8px rgba(192,112, 48, 0.7); }   /* orange */
+  40%  { box-shadow: 0 0 22px 8px rgba(200,192, 48, 0.7); }   /* yellow */
+  54%  { box-shadow: 0 0 22px 8px rgba( 64,168, 64, 0.7); }   /* green  */
+  68%  { box-shadow: 0 0 22px 8px rgba( 48,112,184, 0.7); }   /* blue   */
+  82%  { box-shadow: 0 0 18px 6px rgba(200,134, 42, 0.65); }  /* amber  */
+  100% { box-shadow: 0 0  6px 2px rgba(200,134, 42, 0.0); }
+}
+
+/* 3. Border colour — flashes through the same palette */
+@keyframes btn-border {
+  0%   { border-color: var(--wire2); }
+  10%  { border-color: #c03030; }
+  25%  { border-color: #c07030; }
+  40%  { border-color: #c8c030; }
+  55%  { border-color: #40a840; }
+  70%  { border-color: #3070b8; }
+  85%  { border-color: var(--amber); }
+  100% { border-color: var(--wire2); }
+}
+
+/* 4. Rainbow sweep stripe — child element that slides across */
+@keyframes rainbow-sweep {
+  0%   { left: -100%; opacity: 0.9; }
+  60%  { left:  110%; opacity: 0.9; }
+  61%  { opacity: 0; }
+  100% { left:  110%; opacity: 0; }
+}
+
+/* ── FLOATING FILTER BUTTON ── */
+.float-filter-btn {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  z-index: 500;
+  width: 64px;
+  height: 64px;
+  background: var(--panel2);
+  border: 1px solid var(--wire2);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: var(--clip-btn);
+  overflow: hidden;           /* keeps the rainbow sweep clipped to button shape */
+  /* base transition for hover/open state changes only */
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+
+  /* hidden by default */
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+.float-filter-btn.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  animation:
+    btn-spawn  0.55s                   cubic-bezier(0.2, 0.8, 0.2, 1) forwards,
+    btn-glow   0.95s 0.15s             ease-out                        forwards,
+    btn-border 0.95s 0.15s             ease-out                        forwards;
+}
+.float-filter-btn:hover {
+  border-color: var(--amber);
+  background: var(--panel);
+  color: var(--amber-lit);
+}
+.float-filter-btn.panel-open {
+  border-color: var(--amber);
+  background: var(--panel);
+  color: var(--amber-lit);
+}
+
+/* Rainbow sweep stripe — absolutely positioned inside the button */
+.float-filter-btn .btn-rainbow {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent                0%,
+    rgba(192, 48, 48, 0.55)   10%,
+    rgba(192,112, 48, 0.55)   25%,
+    rgba(200,192, 48, 0.55)   40%,
+    rgba( 64,168, 64, 0.55)   55%,
+    rgba( 48,112,184,0.55)    70%,
+    rgba( 96, 64,160,0.55)    85%,
+    rgba(160, 48, 96,0.30)    95%,
+    transparent               100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  /* animation fires after a tiny delay so the pop lands first */
+  animation: rainbow-sweep 0.65s 0.18s ease-out forwards;
+}
+
+/* amber dot indicator when non-default filters are active */
+.float-filter-btn .filter-dot {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber-lit);
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+.float-filter-btn .filter-dot.lit { opacity: 1; }
+
+/* svg icon inside button */
+.float-filter-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;   /* sits above the sweep stripe */
+}
+
+/* ── FLOATING FILTER PANEL — drops down from top-right ── */
+.float-filter-panel {
+  position: fixed;
+  top: 100px;
+  right: 28px;
+  z-index: 499;
+  width: 340px;
+  background: var(--panel);
+  border: 1px solid var(--wire2);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+
+  opacity: 0;
+  transform: translateY(-10px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: top right;
+}
+.float-filter-panel.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* amber corner accent on panel */
+.float-filter-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 14px; height: 14px;
+  border-top: 1px solid var(--amber);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  pointer-events: none;
+}
+
+.ffp-top {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--wire);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ffp-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 120px;
+}
+.ffp-search-ic {
+  position: absolute; left: 10px; top: 50%;
+  transform: translateY(-50%);
+  font-size: .82rem; color: var(--text3); pointer-events: none;
+}
+.ffp-search-input {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .76rem;
+  width: 100%;
+  background: var(--bg2);
+  border: 1px solid var(--wire2);
+  color: var(--text);
+  padding: 8px 10px 8px 28px;
+  letter-spacing: .05em;
+  clip-path: var(--clip-sm);
+  transition: border-color .15s, background .15s;
+}
+.ffp-search-input::placeholder { color: var(--text3); }
+.ffp-search-input:focus { outline: none; border-color: var(--amber); background: var(--panel2); }
+
+.ffp-sort {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .72rem;
+  background: var(--bg2);
+  border: 1px solid var(--wire2);
+  color: var(--text2);
+  padding: 8px 28px 8px 10px;
+  letter-spacing: .04em;
+  cursor: pointer;
+  appearance: none;
+  clip-path: var(--clip-sm);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%238a8778'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: color .15s, border-color .15s;
+}
+.ffp-sort:hover, .ffp-sort:focus { outline: none; border-color: var(--amber); color: var(--text); }
+
+.ffp-scored {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .07em;
+  padding: 7px 12px;
+  background: var(--bg2);
+  border: 1px solid var(--wire2);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  clip-path: var(--clip-sm);
+  transition: color .14s, border-color .14s, background .14s;
+  white-space: nowrap;
+}
+.ffp-scored:hover { color: var(--text); border-color: var(--amber); background: var(--panel2); }
+.ffp-scored .led {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--text3);
+  transition: background .14s, border-color .14s;
+}
+.ffp-scored.on { color: var(--amber-lit); border-color: var(--amber); background: var(--amber-dim); }
+.ffp-scored.on .led { background: var(--amber-lit); border-color: var(--amber-lit); }
+
+.ffp-rows {
+  padding: 4px 16px 10px;
+}
+.ffp-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--wire);
+}
+.ffp-row:last-child { border-bottom: none; }
+.ffp-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .58rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--text3);
+  flex: 0 0 70px;
+  padding-top: 6px;
+  line-height: 1;
+}
+.ffp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex: 1;
+}
+/* small chip variant for the panel */
+.ffp-chip {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .06em;
+  padding: 4px 10px;
+  background: var(--bg2);
+  border: 1px solid var(--wire2);
+  color: var(--text2);
+  cursor: pointer;
+  clip-path: var(--clip-sm);
+  transition: color .13s, border-color .13s, background .13s;
+  user-select: none;
+}
+.ffp-chip:hover { color: var(--text); border-color: var(--amber); background: var(--panel2); }
+.ffp-chip.on {
+  background: var(--amber-dim);
+  border-color: var(--amber);
+  color: var(--amber-lit);
+}
+.ffp-chip.all-chip.on {
+  background: var(--panel2);
+  border-color: var(--amber);
+  color: var(--text);
+}
+
+.ffp-footer {
+  padding: 10px 16px;
+  border-top: 1px solid var(--wire);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ffp-count {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .64rem;
+  color: var(--text3);
+  letter-spacing: .08em;
+}
+.ffp-count strong { color: var(--amber); }
+
+@media (max-width: 640px) {
+  .float-filter-panel { width: calc(100vw - 24px); right: 12px; top: 88px; }
+  .float-filter-btn  { right: 12px; top: 16px; width: 54px; height: 54px; }
+}
+
+/* ── VIEW TOGGLE BUTTON (controls bar) ── */
+.view-toggle-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  padding: 8px 12px;
+  background: var(--panel);
+  border: 1px solid var(--wire2);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  clip-path: var(--clip-sm);
+  transition: color .14s, border-color .14s, background-color .14s;
+  white-space: nowrap;
+}
+.view-toggle-btn:hover {
+  color: var(--text);
+  border-color: var(--amber);
+  background: var(--panel2);
+}
+.view-toggle-btn svg {
+  width: 14px; height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+/* Show grid icon when in grid mode (clicking switches to list) */
+.view-toggle-btn .icon-list { display: none; }
+.view-toggle-btn .icon-grid { display: block; }
+body.list-mode .view-toggle-btn .icon-list { display: block; }
+body.list-mode .view-toggle-btn .icon-grid { display: none; }
+body.list-mode .view-toggle-btn {
+  color: var(--amber-lit); border-color: var(--amber); background: var(--amber-dim);
+}
+
+/* ── FFP VIEW BUTTON ── */
+.ffp-view-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .07em;
+  padding: 5px 10px;
+  background: var(--bg2);
+  border: 1px solid var(--wire2);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 5px;
+  clip-path: var(--clip-sm);
+  transition: color .14s, border-color .14s, background .14s;
+}
+.ffp-view-btn:hover { color: var(--text); border-color: var(--amber); background: var(--panel2); }
+.ffp-view-btn svg {
+  width: 12px; height: 12px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+.ffp-view-btn .icon-list { display: none; }
+.ffp-view-btn .icon-grid { display: block; }
+body.list-mode .ffp-view-btn .icon-list { display: block; }
+body.list-mode .ffp-view-btn .icon-grid { display: none; }
+body.list-mode .ffp-view-btn {
+  color: var(--amber-lit); border-color: var(--amber); background: var(--amber-dim);
+}
+/* Label text flips */
+.ffp-view-lbl::before { content: 'LIST'; }
+body.list-mode .ffp-view-lbl::before { content: 'GRID'; }
+
+/* ── LIST VIEW LAYOUT ── */
+body.list-mode .grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── LIST ROW ── */
+body.list-mode .card {
+  clip-path: none;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--wire);
+  
+  /* Use CSS Grid with proportional fr scaling to distribute center space dynamically */
+  display: grid;
+  grid-template-columns: 82px minmax(260px, 1.4fr) 1.8fr 70px minmax(200px, 1.2fr);
+  align-items: center;
+  
+  background: transparent;
+  transition: background .15s, border-color .15s;
+  position: relative;
+  overflow: visible;
+  animation: fadeup .15s ease both;
+}
+body.list-mode .card:first-child {
+  border-top: 1px solid var(--wire);
+}
+body.list-mode .card:hover {
+  background: var(--panel);
+  border-color: var(--wire2);
+}
+
+/* Enforce strict grid column mappings so missing items (e.g. score) do not cause layout shifts */
+body.list-mode .thumb-wrap       { grid-column: 1; }
+body.list-mode .list-title-block { grid-column: 2; }
+body.list-mode .card-genres      { grid-column: 3; }
+body.list-mode .card-score       { grid-column: 4; }
+body.list-mode .visit-block      { grid-column: 5; }
+
+/* Kill the card pseudo effects in list mode */
+body.list-mode .card::before,
+body.list-mode .card::after { display: none; }
+
+/* Thumb — compact square in list mode */
+body.list-mode .thumb-wrap {
+  width: 54px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  align-self: center;
+  margin: 10px 0 10px 14px;
+  clip-path: var(--clip-sm);
+  overflow: hidden;
+}
+body.list-mode .thumb-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(.65) contrast(1.05);
+  transition: filter .2s;
+}
+body.list-mode .card:hover .thumb-img {
+  filter: saturate(.9) contrast(1.1);
+  transform: none;
+}
+/* No-cover tile in list mode */
+body.list-mode .no-cover {
+  padding: 4px;
+  gap: 2px;
+}
+body.list-mode .nc-plat { font-size: .75rem; }
+body.list-mode .nc-year { font-size: .5rem; }
+
+/* Flatten Card Body via display: contents so its children occupy the unified card grid directly */
+body.list-mode .card-body {
+  display: contents;
+}
+
+/* Title block — dynamically occupies its column and scales up smoothly on large screens */
+.list-title-block {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-right: 24px;
+}
+body.list-mode .list-title-block { display: flex; }
+
+/* hide the original platform/title/dev elements in list mode, replaced by .list-title-block */
+body.list-mode .card-platform,
+body.list-mode .card-title,
+body.list-mode .card-dev { display: none; }
+
+.list-title-block .lt-platform {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .58rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: .85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list-title-block .lt-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.15;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list-title-block .lt-dev {
+  font-size: .68rem;
+  color: var(--text2);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* genres — occupies the middle of the screen, creating dynamic breathing room */
+body.list-mode .card-genres {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: 0;
+  gap: 4px;
+  overflow: hidden;
+  margin-right: 24px;
+}
+
+/* score badge — aligned horizontally in its grid cell */
+body.list-mode .card-score {
+  padding-top: 0;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  font-size: .95rem;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+/* visit block — dynamically scales with grid column to prevent cutoffs on wide screens */
+body.list-mode .visit-block {
+  border-top: none;
+  border-left: 1px solid var(--wire);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: transparent;
+  transition: background .15s, border-color .15s;
+  align-self: stretch;
+  min-width: 0;
+}
+body.list-mode .visit-block:hover {
+  background: var(--amber-dim);
+  border-left-color: var(--amber);
+}
+body.list-mode .visit-block .visit-inner {
+  width: 100%;
+  min-width: 0;
+}
+body.list-mode .visit-block .visit-name {
+  font-size: .82rem;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Amber left accent line on hover for list rows */
+body.list-mode .card:hover::after {
+  display: none;
+}
+
+/* WIP in list mode */
+body.list-mode .visit-block.wip {
+  pointer-events: none;
+  opacity: .35;
+}
+
+/* ── RESPONSIVE LIST VIEW ADAPTATIONS ── */
+@media (max-width: 1100px) {
+  body.list-mode .card {
+    grid-template-columns: 82px minmax(210px, 1.2fr) 1.5fr 65px minmax(160px, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  body.list-mode .card {
+    grid-template-columns: 82px minmax(180px, 1.2fr) 1.4fr minmax(150px, 1fr);
+  }
+  body.list-mode .card-score { display: none; }
+  body.list-mode .visit-block { grid-column: 4; }
+}
+@media (max-width: 768px) {
+  body.list-mode .card {
+    grid-template-columns: 82px minmax(160px, 1.2fr) minmax(140px, 1fr);
+  }
+  body.list-mode .card-genres { display: none; } /* Hide genre tags when width is constrained */
+  body.list-mode .visit-block { grid-column: 3; }
+}
+@media (max-width: 640px) {
+  body.list-mode .card {
+    grid-template-columns: 74px minmax(130px, 1.2fr) minmax(110px, 1.3fr);
+  }
+  body.list-mode .visit-block { grid-column: 3; padding: 0 12px; }
+}
 </style>
 </head>
 <body>
@@ -851,6 +1465,10 @@ footer {
     <button class="scored-btn" id="scoredBtn" onclick="toggleScored()">
       <span class="led"></span>Scored only
     </button>
+    <button class="view-toggle-btn" id="viewToggleBtn" onclick="toggleViewMode()" title="Toggle list/grid view">
+      <svg class="icon-grid" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg>
+      <svg class="icon-list" viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="1.5" width="10" height="2"/><rect x="5" y="7" width="10" height="2"/><rect x="5" y="12.5" width="10" height="2"/><rect x="1" y="1.5" width="2" height="2"/><rect x="1" y="7" width="2" height="2"/><rect x="1" y="12.5" width="2" height="2"/></svg>
+    </button>
     <div class="result-c"><strong id="liveNum">0</strong> results</div>
   </div>
 
@@ -889,6 +1507,60 @@ footer {
   </a>
 </footer>
 
+<!-- Floating filter panel -->
+<div class="float-filter-panel" id="floatPanel">
+  <div class="ffp-top">
+    <div class="ffp-search-wrap">
+      <span class="ffp-search-ic">⌕</span>
+      <input class="ffp-search-input" type="text" id="ffpSearch" placeholder="Search…">
+    </div>
+    <select class="ffp-sort" id="ffpSort">
+      <option value="score-desc" selected>Score ↓</option>
+      <option value="title">A → Z</option>
+      <option value="year-desc">Newest</option>
+      <option value="year-asc">Oldest</option>
+      <option value="score-asc">Score ↑</option>
+    </select>
+    <button class="ffp-scored" id="ffpScored" onclick="toggleScoredFFP()">
+      <span class="led"></span>Scored
+    </button>
+  </div>
+  <div class="ffp-rows">
+    <div class="ffp-row">
+      <span class="ffp-label">Platform</span>
+      <div class="ffp-chips" id="ffpPlatChips"></div>
+    </div>
+    <div class="ffp-row">
+      <span class="ffp-label">Genre</span>
+      <div class="ffp-chips" id="ffpGenreChips"></div>
+    </div>
+  </div>
+  <div class="ffp-footer">
+    <span class="ffp-count"><strong id="ffpCount">0</strong> results</span>
+    <button class="ffp-view-btn" id="ffpViewBtn" onclick="toggleViewMode()" title="Toggle view">
+      <svg class="icon-grid" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg>
+      <svg class="icon-list" viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="1.5" width="10" height="2"/><rect x="5" y="7" width="10" height="2"/><rect x="5" y="12.5" width="10" height="2"/><rect x="1" y="1.5" width="2" height="2"/><rect x="1" y="7" width="2" height="2"/><rect x="1" y="12.5" width="2" height="2"/></svg>
+      <span class="ffp-view-lbl">LIST</span>
+    </button>
+  </div>
+</div>
+
+<!-- Floating filter trigger button -->
+<button class="float-filter-btn" id="floatBtn" onclick="toggleFloatPanel()" title="Toggle filters">
+  <!-- Rainbow sweep stripe (animated on spawn) -->
+  <span class="btn-rainbow" id="btnRainbow" aria-hidden="true"></span>
+  <!-- Sliders / filter icon -->
+  <svg viewBox="0 0 20 20" aria-hidden="true">
+    <line x1="3" y1="5"  x2="17" y2="5"/>
+    <line x1="3" y1="10" x2="17" y2="10"/>
+    <line x1="3" y1="15" x2="17" y2="15"/>
+    <circle cx="7"  cy="5"  r="2" fill="var(--panel2)" stroke-width="1.6"/>
+    <circle cx="13" cy="10" r="2" fill="var(--panel2)" stroke-width="1.6"/>
+    <circle cx="8"  cy="15" r="2" fill="var(--panel2)" stroke-width="1.6"/>
+  </svg>
+  <span class="filter-dot" id="filterDot"></span>
+</button>
+
 <script>
 /* ── State ────────────────────────────────────────────────── */
 let PORTS = [];
@@ -897,6 +1569,7 @@ let allGenres = [];
 let selPlats  = new Set(['all']);
 let selGenres = new Set(['all']);
 let scoredOnly = false;
+let viewMode   = 'grid'; /* 'grid' | 'list' */
 
 /* ── Fetch Data ───────────────────────────────────────────── */
 async function loadPortsData() {
@@ -958,6 +1631,7 @@ document.addEventListener('mouseleave', () => {
 /* ── Card tilt ────────────────────────────────────────────── */
 function bindTilt(card) {
   card.addEventListener('mousemove', e => {
+    if (viewMode === 'list') return;
     const r = card.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width  - .5;
     const y = (e.clientY - r.top)  / r.height - .5;
@@ -996,6 +1670,13 @@ function buildChips(id, vals, sel) {
 function toggleScored() {
   scoredOnly = !scoredOnly;
   document.getElementById('scoredBtn').classList.toggle('on', scoredOnly);
+  render();
+}
+
+function toggleViewMode() {
+  viewMode = (viewMode === 'grid') ? 'list' : 'grid';
+  document.body.classList.toggle('list-mode', viewMode === 'list');
+  /* Re-render so list rows get the injected list-title-block markup */
   render();
 }
 
@@ -1173,6 +1854,11 @@ function render() {
         <div class="card-platform">${p.originalPlatform}</div>
         <div class="card-title">${p.title}</div>
         <div class="card-dev">${p.originalDeveloper} · ${year}</div>
+        <div class="list-title-block">
+          <span class="lt-platform">${p.originalPlatform}</span>
+          <span class="lt-title">${p.title}</span>
+          <span class="lt-dev">${p.originalDeveloper} · ${year}</span>
+        </div>
         <div class="card-genres">${p.genres.map(g=>`<span class="gpip">${g}</span>`).join('')}</div>
         ${scoreHTML}
       </div>
@@ -1185,6 +1871,196 @@ function render() {
 
 /* ── Boot ─────────────────────────────────────────────────── */
 loadPortsData();
+
+/* ── Floating Filter Panel ────────────────────────────────── */
+(function () {
+  const controlsEl  = document.querySelector('.controls');
+  const floatBtn    = document.getElementById('floatBtn');
+  const floatPanel  = document.getElementById('floatPanel');
+  const filterDot   = document.getElementById('filterDot');
+
+  let panelOpen = false;
+  let controlsBottom = 0;
+
+  /* Measure where the controls bar ends so we know when to trigger */
+  function measureControls() {
+    const r = controlsEl.getBoundingClientRect();
+    controlsBottom = r.bottom + window.scrollY;
+  }
+
+  /* Scroll handler — collapse bar and show/hide floating button */
+  function onScroll() {
+    const scrolled = window.scrollY > controlsBottom - 10;
+    controlsEl.classList.toggle('collapsed', scrolled);
+
+    if (scrolled && !floatBtn.classList.contains('visible')) {
+      /* Remove then re-add to re-trigger the spawn animation every time */
+      floatBtn.classList.remove('visible');
+      /* Force reflow so the animation restarts cleanly */
+      void floatBtn.offsetWidth;
+      /* Re-clone the rainbow sweep span so its animation also restarts */
+      const oldRainbow = document.getElementById('btnRainbow');
+      if (oldRainbow) {
+        const newRainbow = oldRainbow.cloneNode(true);
+        oldRainbow.parentNode.replaceChild(newRainbow, oldRainbow);
+      }
+      floatBtn.classList.add('visible');
+      floatBtn.style.pointerEvents = 'auto';
+    } else if (!scrolled) {
+      floatBtn.classList.remove('visible');
+      floatBtn.style.pointerEvents = 'none';
+      /* If user scrolls back up, close the panel too */
+      if (panelOpen) closePanelOnly();
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { measureControls(); onScroll(); });
+
+  /* Run once after data loads (chips may change layout height) */
+  const origLoadPortsData = window.loadPortsData;
+  window.addEventListener('load', () => setTimeout(measureControls, 200));
+  /* Also measure after a small delay to handle dynamic chip rendering */
+  setTimeout(measureControls, 500);
+
+  /* Toggle panel open/closed */
+  window.toggleFloatPanel = function () {
+    panelOpen = !panelOpen;
+    floatPanel.classList.toggle('open', panelOpen);
+    floatBtn.classList.toggle('panel-open', panelOpen);
+
+    if (panelOpen) syncPanelFromMain();
+  };
+
+  function closePanelOnly() {
+    panelOpen = false;
+    floatPanel.classList.remove('open');
+    floatBtn.classList.remove('panel-open');
+  }
+
+  /* Close panel when clicking outside */
+  document.addEventListener('click', (e) => {
+    if (panelOpen && !floatPanel.contains(e.target) && e.target !== floatBtn && !floatBtn.contains(e.target)) {
+      closePanelOnly();
+    }
+  });
+
+  /* Also close on Escape (but don't interfere with the main modal) */
+  const origKeydown = document.onkeydown;
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panelOpen) closePanelOnly();
+  });
+
+  /* ── Sync panel controls ← main state ── */
+  function syncPanelFromMain() {
+    /* Search */
+    document.getElementById('ffpSearch').value =
+      document.getElementById('searchInput').value;
+
+    /* Sort */
+    const mainSort = document.getElementById('sortSel').value;
+    document.getElementById('ffpSort').value = mainSort;
+
+    /* Scored */
+    const scoredIsOn = document.getElementById('scoredBtn').classList.contains('on');
+    document.getElementById('ffpScored').classList.toggle('on', scoredIsOn);
+
+    /* Chips */
+    buildFFPChips('ffpPlatChips',  allPlats,  selPlats);
+    buildFFPChips('ffpGenreChips', allGenres, selGenres);
+
+    updateFFPCount();
+    updateFilterDot();
+  }
+
+  /* Build compact chips inside the floating panel */
+  window.buildFFPChips = function (id, vals, sel) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = '';
+
+    const allBtn = document.createElement('button');
+    allBtn.className = 'ffp-chip all-chip' + (sel.has('all') ? ' on' : '');
+    allBtn.textContent = 'All';
+    allBtn.onclick = () => {
+      sel.clear(); sel.add('all');
+      buildFFPChips(id, vals, sel);
+      buildChips(id === 'ffpPlatChips' ? 'platChips' : 'genreChips', vals, sel);
+      render(); updateFFPCount(); updateFilterDot();
+    };
+    el.appendChild(allBtn);
+
+    vals.forEach(v => {
+      const c = document.createElement('button');
+      c.className = 'ffp-chip' + (sel.has(v) ? ' on' : '');
+      c.textContent = v;
+      c.onclick = () => {
+        sel.delete('all');
+        sel.has(v) ? sel.delete(v) : sel.add(v);
+        if (!sel.size) sel.add('all');
+        buildFFPChips(id, vals, sel);
+        buildChips(id === 'ffpPlatChips' ? 'platChips' : 'genreChips', vals, sel);
+        render(); updateFFPCount(); updateFilterDot();
+      };
+      el.appendChild(c);
+    });
+  };
+
+  /* ── Live inputs inside panel → propagate to main render ── */
+  document.getElementById('ffpSearch').addEventListener('input', function () {
+    document.getElementById('searchInput').value = this.value;
+    render(); updateFFPCount(); updateFilterDot();
+  });
+
+  document.getElementById('ffpSort').addEventListener('change', function () {
+    document.getElementById('sortSel').value = this.value;
+    render(); updateFFPCount();
+  });
+
+  /* Scored toggle in panel mirrors the main one */
+  window.toggleScoredFFP = function () {
+    toggleScored();                               /* calls main toggleScored */
+    const isOn = document.getElementById('scoredBtn').classList.contains('on');
+    document.getElementById('ffpScored').classList.toggle('on', isOn);
+    updateFFPCount(); updateFilterDot();
+  };
+
+  /* Keep result count badge in the panel fresh */
+  function updateFFPCount() {
+    const live = document.getElementById('liveNum').textContent;
+    const el = document.getElementById('ffpCount');
+    if (el) el.textContent = live;
+  }
+
+  /* Amber dot on button lights up when any non-default filter is set */
+  function updateFilterDot() {
+    const hasSearch  = document.getElementById('searchInput').value.trim() !== '';
+    const hasPlat    = !selPlats.has('all');
+    const hasGenre   = !selGenres.has('all');
+    const hasScored  = document.getElementById('scoredBtn').classList.contains('on');
+    filterDot.classList.toggle('lit', hasSearch || hasPlat || hasGenre || hasScored);
+  }
+
+  /* Patch the global render() to also update the panel count & dot */
+  const _origRender = window.render;
+  window.render = function () {
+    _origRender();
+    updateFFPCount();
+    updateFilterDot();
+  };
+
+  /* Patch buildChips so panel chips also stay synced when main chips change */
+  const _origBuildChips = window.buildChips;
+  window.buildChips = function (id, vals, sel) {
+    _origBuildChips(id, vals, sel);
+    /* mirror to panel if it's open */
+    if (panelOpen) {
+      const panelId = id === 'platChips' ? 'ffpPlatChips' : 'ffpGenreChips';
+      buildFFPChips(panelId, vals, sel);
+    }
+    updateFilterDot();
+  };
+})();
 </script>
 </body>
 </html>
