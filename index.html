@@ -34,7 +34,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; } /* Lock horizontal scroll globally */
 
 body {
   background: var(--bg);
@@ -262,6 +262,11 @@ body::after {
 .scored-btn.on { color: var(--amber-lit); border-color: var(--amber); background: var(--amber-dim); }
 .scored-btn.on .led { background: var(--amber-lit); border-color: var(--amber-lit); }
 
+/* Mobile Filter Accordion Trigger */
+.mobile-filter-trigger {
+  display: none; /* hidden on desktop */
+}
+
 .result-c {
   font-family: 'Share Tech Mono', monospace;
   font-size: .68rem;
@@ -273,6 +278,7 @@ body::after {
 /* filter rows */
 .filter-rows {
   padding: 4px 48px;
+  display: block; /* always visible on desktop */
 }
 
 .frow {
@@ -799,67 +805,38 @@ footer {
   transform: translate(2px, -2px);
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  .site-header, .ctrl-top, .filter-rows, main, footer { padding-left: 16px; padding-right: 16px; }
-  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
-  .search-wrap { flex: 1; }
-  .flabel { flex: 0 0 60px; }
-  footer { flex-direction: column; gap: 10px; text-align: center; }
+/* ── VIEW TOGGLE BUTTON (controls bar) ── */
+.view-toggle-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  padding: 8px 12px;
+  background: var(--panel);
+  border: 1px solid var(--wire2);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  clip-path: var(--clip-sm);
+  transition: color .14s, border-color .14s, background-color .14s;
+  white-space: nowrap;
 }
-
-/* ── CONTROLS SCROLL COLLAPSE — sucked toward top-right ── */
-.controls {
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.6, 1);
-  transform-origin: top right;
+.view-toggle-btn:hover {
+  color: var(--text);
+  border-color: var(--amber);
+  background: var(--panel2);
 }
-.controls.collapsed {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(40px) translateY(-12px) scaleX(0.6) scaleY(0.3);
+.view-toggle-btn svg {
+  width: 14px; height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
-
-/* ── Spawn keyframes ─────────────────────────────────────── */
-
-/* 1. Button scale — elastic pop */
-@keyframes btn-spawn {
-  0%   { opacity: 0; transform: scale(0.15); }
-  50%  { opacity: 1; transform: scale(1.22); }
-  68%  { transform: scale(0.90); }
-  84%  { transform: scale(1.07); }
-  100% { transform: scale(1);   }
-}
-
-/* 2. Multi-colour glow ring — cycles through the Atari stripe colours then settles */
-@keyframes btn-glow {
-  0%   { box-shadow: 0 0  0   0   rgba(192, 48, 48, 0.0); }
-  12%  { box-shadow: 0 0 22px 8px rgba(192, 48, 48, 0.7); }   /* red    */
-  26%  { box-shadow: 0 0 22px 8px rgba(192,112, 48, 0.7); }   /* orange */
-  40%  { box-shadow: 0 0 22px 8px rgba(200,192, 48, 0.7); }   /* yellow */
-  54%  { box-shadow: 0 0 22px 8px rgba( 64,168, 64, 0.7); }   /* green  */
-  68%  { box-shadow: 0 0 22px 8px rgba( 48,112,184, 0.7); }   /* blue   */
-  82%  { box-shadow: 0 0 18px 6px rgba(200,134, 42, 0.65); }  /* amber  */
-  100% { box-shadow: 0 0  6px 2px rgba(200,134, 42, 0.0); }
-}
-
-/* 3. Border colour — flashes through the same palette */
-@keyframes btn-border {
-  0%   { border-color: var(--wire2); }
-  10%  { border-color: #c03030; }
-  25%  { border-color: #c07030; }
-  40%  { border-color: #c8c030; }
-  55%  { border-color: #40a840; }
-  70%  { border-color: #3070b8; }
-  85%  { border-color: var(--amber); }
-  100% { border-color: var(--wire2); }
-}
-
-/* 4. Rainbow sweep stripe — child element that slides across */
-@keyframes rainbow-sweep {
-  0%   { left: -100%; opacity: 0.9; }
-  60%  { left:  110%; opacity: 0.9; }
-  61%  { opacity: 0; }
-  100% { left:  110%; opacity: 0; }
+/* Show grid icon when in grid mode (clicking switches to list) */
+.view-toggle-btn .icon-list { display: none; }
+.view-toggle-btn .icon-grid { display: block; }
+body.list-mode .view-toggle-btn .icon-list { display: block; }
+body.list-mode .view-toggle-btn .icon-grid { display: none; }
+body.list-mode .view-toggle-btn {
+  color: var(--amber-lit); border-color: var(--amber); background: var(--amber-dim);
 }
 
 /* ── FLOATING FILTER BUTTON ── */
@@ -881,6 +858,9 @@ footer {
   overflow: hidden;           /* keeps the rainbow sweep clipped to button shape */
   /* base transition for hover/open state changes only */
   transition: border-color 0.15s, background 0.15s, color 0.15s;
+
+  /* Force clip boundary on iOS/Safari scale animations */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   /* hidden by default */
   opacity: 0;
@@ -910,7 +890,7 @@ footer {
 /* Rainbow sweep stripe — absolutely positioned inside the button */
 .float-filter-btn .btn-rainbow {
   position: absolute;
-  top: 0; left: -100%;
+  top: 0; left: 0; /* Changed from -100% to 0 to safely translate on GPU */
   width: 55%;
   height: 100%;
   background: linear-gradient(
@@ -927,6 +907,7 @@ footer {
   );
   pointer-events: none;
   opacity: 0;
+  transform: translateX(-110%);
   /* animation fires after a tiny delay so the pop lands first */
   animation: rainbow-sweep 0.65s 0.18s ease-out forwards;
 }
@@ -1139,45 +1120,6 @@ footer {
   letter-spacing: .08em;
 }
 .ffp-count strong { color: var(--amber); }
-
-@media (max-width: 640px) {
-  .float-filter-panel { width: calc(100vw - 24px); right: 12px; top: 88px; }
-  .float-filter-btn  { right: 12px; top: 16px; width: 54px; height: 54px; }
-}
-
-/* ── VIEW TOGGLE BUTTON (controls bar) ── */
-.view-toggle-btn {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: .72rem;
-  letter-spacing: .08em;
-  padding: 8px 12px;
-  background: var(--panel);
-  border: 1px solid var(--wire2);
-  color: var(--text2);
-  cursor: pointer;
-  display: flex; align-items: center; gap: 6px;
-  clip-path: var(--clip-sm);
-  transition: color .14s, border-color .14s, background-color .14s;
-  white-space: nowrap;
-}
-.view-toggle-btn:hover {
-  color: var(--text);
-  border-color: var(--amber);
-  background: var(--panel2);
-}
-.view-toggle-btn svg {
-  width: 14px; height: 14px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
-/* Show grid icon when in grid mode (clicking switches to list) */
-.view-toggle-btn .icon-list { display: none; }
-.view-toggle-btn .icon-grid { display: block; }
-body.list-mode .view-toggle-btn .icon-list { display: block; }
-body.list-mode .view-toggle-btn .icon-grid { display: none; }
-body.list-mode .view-toggle-btn {
-  color: var(--amber-lit); border-color: var(--amber); background: var(--amber-dim);
-}
 
 /* ── FFP VIEW BUTTON ── */
 .ffp-view-btn {
@@ -1416,11 +1358,216 @@ body.list-mode .visit-block.wip {
   body.list-mode .card-genres { display: none; } /* Hide genre tags when width is constrained */
   body.list-mode .visit-block { grid-column: 3; }
 }
+
+/* ── RESPONSIVE MOBILE ADAPTATIONS ── */
 @media (max-width: 640px) {
-  body.list-mode .card {
-    grid-template-columns: 74px minmax(130px, 1.2fr) minmax(110px, 1.3fr);
+  .site-header, .ctrl-top, .filter-rows, main, footer { padding-left: 16px; padding-right: 16px; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+  .search-wrap { flex: 1; }
+  .flabel { flex: 0 0 60px; }
+  footer { flex-direction: column; gap: 10px; text-align: center; }
+
+  /* Grid card design adjustments on mobile */
+  .card-body { padding: 10px 12px 10px; gap: 5px; }
+  .card-title { font-size: 1rem; }
+  .card-dev { font-size: 0.68rem; }
+  .card-genres { gap: 3px; margin-top: 1px; }
+  .gpip { font-size: 0.58rem; padding: 2px 4px; }
+  .card-score { font-size: 0.95rem; padding-top: 4px; }
+  .score-lbl { font-size: 0.5rem; }
+  .visit-block { padding: 8px 12px; }
+  .visit-name { font-size: 0.82rem; }
+
+  /* Mobile Collapsible Header Filters Accordion */
+  .mobile-filter-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    padding: 8px 12px;
+    background: var(--panel);
+    border: 1px solid var(--wire2);
+    color: var(--text2);
+    cursor: pointer;
+    clip-path: var(--clip-sm);
+    transition: color .14s, border-color .14s, background-color .14s;
+    white-space: nowrap;
   }
-  body.list-mode .visit-block { grid-column: 3; padding: 0 12px; }
+  .mobile-filter-trigger:hover,
+  .mobile-filter-trigger.active {
+    color: var(--amber-lit);
+    border-color: var(--amber);
+    background: var(--amber-dim);
+  }
+  .mobile-filter-trigger svg {
+    width: 10px;
+    height: 10px;
+    fill: currentColor;
+    transition: transform 0.2s ease;
+  }
+  .mobile-filter-trigger.active svg {
+    transform: rotate(180deg);
+  }
+
+  /* Make filters collapsible on mobile */
+  .filter-rows {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 16px;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  }
+  .filter-rows.show-mobile {
+    max-height: 500px;
+    opacity: 1;
+    padding: 4px 16px 12px;
+  }
+
+  /* Compact list mode columns layout on mobile portrait */
+  body.list-mode .card {
+    grid-template-columns: 70px minmax(120px, 1.2fr) minmax(100px, 1.1fr);
+  }
+  body.list-mode .visit-block { grid-column: 3; padding: 0 8px; }
+
+  /* Thumb — compact square on mobile list rows */
+  body.list-mode .thumb-wrap {
+    width: 48px;
+    margin: 10px 0 10px 8px;
+  }
+
+  /* Bottom-Right FAB Positioning for Thumb Accessibility */
+  .float-filter-btn {
+    right: 16px;
+    bottom: 16px;
+    top: auto;
+    width: 58px;
+    height: 58px;
+  }
+  .float-filter-panel {
+    width: calc(100% - 32px); /* Changed from 100vw to 100% to prevent scrollbar overflow issues */
+    max-width: 340px;
+    right: 16px;
+    left: auto;
+    bottom: 84px; /* Float directly above floating button */
+    top: auto;
+    transform-origin: bottom right;
+    transform: translateY(15px) scale(0.95);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  }
+  .float-filter-panel.open {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Extra Tight Mobile List Mode Design (<520px) to prevent horizontal scrolling */
+@media (max-width: 520px) {
+  body.list-mode .card {
+    grid-template-columns: 60px 1fr auto;
+    gap: 10px;
+    padding: 8px 12px;
+    align-items: center;
+  }
+  body.list-mode .thumb-wrap {
+    width: 44px;
+    aspect-ratio: 1/1;
+    margin: 0;
+    clip-path: var(--clip-sm);
+  }
+  body.list-mode .list-title-block {
+    padding-right: 4px;
+  }
+  body.list-mode .list-title-block .lt-title {
+    font-size: 0.9rem;
+  }
+  body.list-mode .list-title-block .lt-platform,
+  body.list-mode .list-title-block .lt-dev {
+    font-size: 0.58rem;
+  }
+  body.list-mode .visit-block {
+    grid-column: 3;
+    border-left: none;
+    padding: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-self: center;
+  }
+  body.list-mode .visit-block .visit-inner {
+    background: var(--panel2);
+    border: 1px solid var(--wire2);
+    padding: 6px 10px;
+    clip-path: var(--clip-sm);
+    text-align: center;
+    width: auto;
+  }
+  body.list-mode .visit-block:hover .visit-inner {
+    background: var(--amber-dim);
+    border-color: var(--amber);
+  }
+  body.list-mode .visit-block .visit-name {
+    font-size: 0.68rem;
+    max-width: 75px;
+  }
+  body.list-mode .visit-block .visit-arrow {
+    font-size: 0.6rem;
+  }
+}
+
+/* ── CONTROLS SCROLL COLLAPSE — sucked toward top-right ── */
+.controls {
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.6, 1);
+  transform-origin: top right;
+}
+.controls.collapsed {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(40px) translateY(-12px) scaleX(0.6) scaleY(0.3);
+}
+
+/* ── Spawn keyframes ─────────────────────────────────────── */
+
+/* 1. Button scale — elastic pop */
+@keyframes btn-spawn {
+  0%   { opacity: 0; transform: scale(0.15); }
+  50%  { opacity: 1; transform: scale(1.22); }
+  68%  { transform: scale(0.90); }
+  84%  { transform: scale(1.07); }
+  100% { transform: scale(1);   }
+}
+
+/* 2. Multi-colour glow ring — cycles through the Atari stripe colours then settles */
+@keyframes btn-glow {
+  0%   { box-shadow: 0 0  0   0   rgba(192, 48, 48, 0.0); }
+  12%  { box-shadow: 0 0 22px 8px rgba(192, 48, 48, 0.7); }   /* red    */
+  26%  { box-shadow: 0 0 22px 8px rgba(192,112, 48, 0.7); }   /* orange */
+  40%  { box-shadow: 0 0 22px 8px rgba(200,192, 48, 0.7); }   /* yellow */
+  54%  { box-shadow: 0 0 22px 8px rgba( 64,168, 64, 0.7); }   /* green  */
+  68%  { box-shadow: 0 0 22px 8px rgba( 48,112,184, 0.7); }   /* blue   */
+  82%  { box-shadow: 0 0 18px 6px rgba(200,134, 42, 0.65); }  /* amber  */
+  100% { box-shadow: 0 0  6px 2px rgba(200,134, 42, 0.0); }
+}
+
+/* 3. Border colour — flashes through the same palette */
+@keyframes btn-border {
+  0%   { border-color: var(--wire2); }
+  10%  { border-color: #c03030; }
+  25%  { border-color: #c07030; }
+  40%  { border-color: #c8c030; }
+  55%  { border-color: #40a840; }
+  70%  { border-color: #3070b8; }
+  85%  { border-color: var(--amber); }
+  100% { border-color: var(--wire2); }
+}
+
+/* 4. Rainbow sweep stripe — child element that slides across (modified to use hardware transform) */
+@keyframes rainbow-sweep {
+  0%   { transform: translateX(-110%); opacity: 0.9; }
+  60%  { transform: translateX(210%); opacity: 0.9; }
+  61%  { opacity: 0; }
+  100% { transform: translateX(210%); opacity: 0; }
 }
 </style>
 </head>
@@ -1464,6 +1611,11 @@ body.list-mode .visit-block.wip {
     </select>
     <button class="scored-btn" id="scoredBtn" onclick="toggleScored()">
       <span class="led"></span>Scored only
+    </button>
+    <!-- Collapsible filters toggle button (mobile only) -->
+    <button class="mobile-filter-trigger" id="mobileFilterTrigger" onclick="toggleMobileFilters()">
+      <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+      <span>Filters</span>
     </button>
     <button class="view-toggle-btn" id="viewToggleBtn" onclick="toggleViewMode()" title="Toggle list/grid view">
       <svg class="icon-grid" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg>
@@ -1680,6 +1832,18 @@ function toggleViewMode() {
   render();
 }
 
+/* ── Mobile Filters Accordion Toggle ─────────────────────── */
+function toggleMobileFilters() {
+  const rows = document.querySelector('.filter-rows');
+  const btn = document.getElementById('mobileFilterTrigger');
+  const isShown = rows.classList.toggle('show-mobile');
+  btn.classList.toggle('active', isShown);
+  
+  if (window.measureControls) {
+    setTimeout(window.measureControls, 150);
+  }
+}
+
 /* ── Score Helper (ratingMoby with ratingMetacritic fallback) ── */
 function getScore(p) {
   if (p.ratingMoby !== undefined && p.ratingMoby !== null) {
@@ -1883,10 +2047,10 @@ loadPortsData();
   let controlsBottom = 0;
 
   /* Measure where the controls bar ends so we know when to trigger */
-  function measureControls() {
+  window.measureControls = function () {
     const r = controlsEl.getBoundingClientRect();
     controlsBottom = r.bottom + window.scrollY;
-  }
+  };
 
   /* Scroll handler — collapse bar and show/hide floating button */
   function onScroll() {
@@ -1915,13 +2079,13 @@ loadPortsData();
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', () => { measureControls(); onScroll(); });
+  window.addEventListener('resize', () => { window.measureControls(); onScroll(); });
 
   /* Run once after data loads (chips may change layout height) */
   const origLoadPortsData = window.loadPortsData;
-  window.addEventListener('load', () => setTimeout(measureControls, 200));
+  window.addEventListener('load', () => setTimeout(window.measureControls, 200));
   /* Also measure after a small delay to handle dynamic chip rendering */
-  setTimeout(measureControls, 500);
+  setTimeout(window.measureControls, 500);
 
   /* Toggle panel open/closed */
   window.toggleFloatPanel = function () {
