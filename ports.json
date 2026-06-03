@@ -2024,5 +2024,24 @@
       "https://github.com/SolarCookies/TiP-Recomp"
     ],
     "cover": "img/e9437348054c27c0951c7d9d59bac04f.jpg"
+  },
+  {
+    "title": "Mega Man X",
+    "originalPlatform": "SNES",
+    "originalReleaseDate": "1993-10-01",
+    "originalDeveloper": "Capcom",
+    "genres": [
+      "Shooter",
+      "Platform",
+      "Adventure"
+    ],
+    "ratingMetacritic": 8.3,
+    "portNames": [
+      "MegaManXSNESRecomp"
+    ],
+    "links": [
+      "https://github.com/mstan/MegaManXSNESRecomp"
+    ],
+    "cover": "img/e24927b595bdddebb71671d11f76f067.jpg"
   }
 ]
