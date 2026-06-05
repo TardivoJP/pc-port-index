@@ -2043,5 +2043,40 @@
       "https://github.com/mstan/MegaManXSNESRecomp"
     ],
     "cover": "img/e24927b595bdddebb71671d11f76f067.jpg"
+  },
+  {
+    "title": "Skate 3",
+    "originalPlatform": "Xbox 360",
+    "originalReleaseDate": "2010-05-11",
+    "originalDeveloper": "Electronic Arts Black Box",
+    "genres": [
+      "Sport"
+    ],
+    "ratingMetacritic": 7.9,
+    "portNames": [
+      "Skate3Recomp"
+    ],
+    "links": [
+      "https://github.com/portingpete/skate3-recomp"
+    ],
+    "cover": "img/cb5afcadcac972f1c6d743c96936ebe3.jpg"
+  },
+  {
+    "title": "Tomba!",
+    "originalPlatform": "PlayStation",
+    "originalReleaseDate": "1997-12-25",
+    "originalDeveloper": "Whoopee Camp Co., Ltd.",
+    "genres": [
+      "Platform",
+      "Adventure"
+    ],
+    "ratingMetacritic": 8.0,
+    "portNames": [
+      "TombaRecomp"
+    ],
+    "links": [
+      "https://github.com/mstan/TombaRecomp"
+    ],
+    "cover": "img/bc24e9eee7e3f89a8f618317668a9042.jpg"
   }
 ]
